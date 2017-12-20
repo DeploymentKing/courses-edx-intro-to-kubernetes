@@ -15,8 +15,8 @@ pwd # Should return /home/docker/vol
 
 # ctrl + D to exit back to your workstation
 
-kubectl create -f chapter_10.0.yaml
-kubectl create -f chapter_10.0_svc.yaml
+kubectl create -f deployment.yaml
+kubectl create -f service.yaml
 
 kubectl get service
 

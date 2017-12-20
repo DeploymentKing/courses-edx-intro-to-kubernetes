@@ -26,7 +26,7 @@ kubectl get pods
 
 # Deploying the Application Using the CLI II
 kubectl create namespace edx
-kubectl create -f chapter_09.yaml
+kubectl create -f deployment.yaml
 kubectl get replicasets --all-namespaces=true
 # Permanently save the namespace for all subsequent kubectl commands in that context.
 kubectl config set-context $(kubectl config current-context) --namespace=edx
@@ -34,11 +34,12 @@ kubectl get replicasets
 kubectl get pods
 
 # Create a Service and Expose It to the External World with NodePort I
-kubectl create -f chapter_09_svc.yaml
+kubectl create -f service.yaml
 
 # Create a Service and Expose It to the External World with NodePort II
 kubectl get service
 kubectl describe svc web-service
+minikube service -n edx web-service
 
 # Accessing the Application Using the Exposed NodePort
 minikube ip
