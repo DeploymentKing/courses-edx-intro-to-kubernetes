@@ -6,8 +6,10 @@ minikube status
 minikube dashboard
 
 minikube ssh
+# The following commands are executed on the minikube host
 sudo -i
 mkdir -p /tmp/mount
+# ctrl + D to exit back to your workstation
 
 kubectl create -f persistent_volume.yaml
 kubectl create -f persistent_volume_claim.yaml
@@ -26,7 +28,6 @@ kubectl create -f deployment.yaml
 kubectl create -f service.yaml
 
 kubectl get service
-
 minikube service -n edx web-service
 
 # Tidy up
