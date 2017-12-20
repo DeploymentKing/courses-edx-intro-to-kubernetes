@@ -4,32 +4,17 @@
 minikube status
 minikube dashboard
 
-# Deploying an Application Using the Minikube GUI III (
-kubectl get deployments
-kubectl get replicasets
-kubectl get pods
+# Accessing the Application Using the Exposed NodePort
+minikube ip
 
-# Exploring Labels and Selectors I
-kubectl describe pod webserver-bdbc4585d-7w4jc
-
-# Exploring Labels and Selectors II
-kubectl get pods -L app,label2
-
-# Exploring Labels and Selectors III
-kubectl get pods -l app=webserver
-kubectl get pods -l app=webserver1
-
-# Deploying the Application Using the CLI I
-kubectl delete deployments webserver
-kubectl get replicasets
-kubectl get pods
+# Permanently save the namespace for all subsequent kubectl commands in that context.
+kubectl create namespace edx
+kubectl config set-context $(kubectl config current-context) --namespace=edx
 
 # Deploying the Application Using the CLI II
-kubectl create namespace edx
 kubectl create -f deployment.yaml
+kubectl get deployments
 kubectl get replicasets --all-namespaces=true
-# Permanently save the namespace for all subsequent kubectl commands in that context.
-kubectl config set-context $(kubectl config current-context) --namespace=edx
 kubectl get replicasets
 kubectl get pods
 
@@ -41,5 +26,16 @@ kubectl get service
 kubectl describe svc web-service
 minikube service -n edx web-service
 
-# Accessing the Application Using the Exposed NodePort
-minikube ip
+# Exploring Labels and Selectors I
+kubectl describe pod webserver-bdbc4585d-7w4jc
+
+# Exploring Labels and Selectors II
+kubectl get pods -L app,label2
+
+# Exploring Labels and Selectors III
+kubectl get pods -l app=webserver
+kubectl get pods -l app=webserver1
+
+# Tidy up
+kubectl delete service web-service
+kubectl delete deployments webserver
