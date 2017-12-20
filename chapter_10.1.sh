@@ -29,7 +29,7 @@ kubectl delete deployments webserver
 
 # Now try and mount a folder on my host macOs > minikube's vol folder > container's /usr/share/nginx/html folder
 # minikube mount HOST_MOUNT_DIRECTORY:VM_MOUNT_DIRECTORY(ex:"/host-home:/vm-home")
-minikube mount /Users/leemyring/source/DeploymentKing/courses-edx-intro-to-kubernetes/volume_mount:/home/docker/vol
+minikube mount /Users/leemyring/source/DeploymentKing/courses-edx-intro-to-kubernetes/volume_mount:/tmp/data
 
 
 
