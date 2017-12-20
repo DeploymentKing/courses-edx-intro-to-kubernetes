@@ -20,5 +20,6 @@ kubectl create -f service.yaml
 
 kubectl get service
 
+# Tidy up
 kubectl delete service web-service
 kubectl delete deployments webserver
