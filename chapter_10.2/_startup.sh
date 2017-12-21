@@ -18,8 +18,11 @@ until $(curl --output /dev/null --silent --head --fail http://$MINIKUBE_IP:30000
     printf '.'
     sleep 5
 done
-
 echo
+
+echo "${green}Setting the Docker Registry to point to Minikube for this terminal window...${reset}"
+eval $(minikube docker-env)
+
 echo "${green}Launching dashboard...${reset}"
 minikube dashboard
 
